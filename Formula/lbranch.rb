@@ -1,7 +1,7 @@
 class Lbranch < Formula
   desc "Link git branches to Linear issues"
-  homepage "https://github.com/fletchrichman/lbranch"
-  url "https://github.com/fletchrichman/lbranch/archive/refs/tags/v0.2.0.tar.gz"
+  homepage "https://github.com/type-dot-com/homebrew-linear-branch"
+  url "https://github.com/type-dot-com/homebrew-linear-branch/archive/refs/tags/v0.2.0.tar.gz"
   sha256 ""
   license "MIT"
 
