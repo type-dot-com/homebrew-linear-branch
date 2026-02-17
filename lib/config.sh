@@ -17,8 +17,10 @@ load_config() {
 
   # Load API key: env var first, then repo .env as fallback
   if [ -z "$LINEAR_API_KEY" ]; then
-    ENV_FILE="$(git rev-parse --show-toplevel 2>/dev/null)/.env"
-    if [ -f "$ENV_FILE" ]; then
+    local GIT_ROOT
+    GIT_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || true)"
+    ENV_FILE="${GIT_ROOT:+$GIT_ROOT/.env}"
+    if [ -n "$ENV_FILE" ] && [ -f "$ENV_FILE" ]; then
       LINEAR_API_KEY=$(grep -E '^LINEAR_API_KEY=' "$ENV_FILE" | cut -d'=' -f2- | tr -d '"' | tr -d "'")
     fi
   fi
